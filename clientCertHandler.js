@@ -1,4 +1,4 @@
-import {pki, md, asn1} from 'node-forge';
+const {pki, md, asn1} = require('node-forge');
 
 const authorizeClientCertificate = (req, res, next) => {
     try {
@@ -39,4 +39,4 @@ const authorizeClientCertificate = (req, res, next) => {
     }
 };
 
-export default authorizeClientCertificate;
+module.exports = authorizeClientCertificate;
