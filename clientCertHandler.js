@@ -10,9 +10,12 @@ const authorizeClientCertificate = (req, res, next) => {
         const pem = `-----BEGIN CERTIFICATE-----${header}-----END CERTIFICATE-----`;
         const incomingCert = pki.certificateFromPem(pem);
 
-        console.log('issuer: ' + incomingCert.issuer);
+        console.log('header: ' + header);
+        console.log('cert: ' + JSON.stringify(incomingCert));
+
+        console.log('issuer: ' + JSON.stringify(incomingCert.subject));
         console.log('issuer hash: ' + incomingCert.issuer.hash);
-        console.log('subject: ' + incomingCert.subject);
+        console.log('subject: ' + JSON.stringify(incomingCert.subject));
         console.log('subject has: ' + incomingCert.subject.hash.toLowerCase() );
 
         // // Validate certificate thumbprint
